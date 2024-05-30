@@ -1,1 +1,1 @@
-const a="/static/png/noData.png";export{a as n};
+const a="./static/png/noData.png";export{a as n};
