@@ -107,9 +107,9 @@
       </div>
     </div>
 
-    <div class="go-login-box-footer">
-      <layout-footer></layout-footer>
-    </div>
+<!--    <div class="go-login-box-footer">-->
+<!--      <layout-footer></layout-footer>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -142,7 +142,7 @@ const t = window['$t']
 
 const formInline = reactive({
   username: 'admin',
-  password: '123456',
+  password: 'admin',
 })
 
 const rules = {
@@ -205,7 +205,7 @@ const handleSubmit = async (e: Event) => {
         const { tokenValue, tokenName } = res.data.token
         const { nickname, username, id } = res.data.userinfo
 
-        // 存储到 pinia 
+        // 存储到 pinia
         systemStore.setItem(SystemStoreEnum.USER_INFO, {
           [SystemStoreUserInfoEnum.USER_TOKEN]: tokenValue,
           [SystemStoreUserInfoEnum.TOKEN_NAME]: tokenName,
@@ -214,7 +214,7 @@ const handleSubmit = async (e: Event) => {
           [SystemStoreUserInfoEnum.NICK_NAME]: nickname,
           t
         })
-        
+
         window['$message'].success(t('login.login_success'))
         routerTurnByName(PageEnum.BASE_HOME_NAME, true)
       }
@@ -245,6 +245,10 @@ $account-img-height: 210px;
 $footer-height: 50px;
 $carousel-width: 30%;
 $carousel-image-height: 60vh;
+
+.login-account-top-logo {
+  width: 200px;
+}
 
 * {
   box-sizing: border-box;
